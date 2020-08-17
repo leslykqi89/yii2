@@ -9,8 +9,8 @@ before_install:
 deploy:
   provider: script
   script:
-    - docker build -t leslykqi/yii2 .
+    - make build
     # Take those images and push themto docker hub
-    - docker push leslykqi/yii2:latest
+    - make push
   on:
     branch: master
