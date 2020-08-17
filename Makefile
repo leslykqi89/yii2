@@ -18,6 +18,10 @@ latest:
 push:
 	docker push $(FULL_IMAGE_NAME)
 
+push-all:
+	build
+	push
+
 push-latest:
 	docker push $(IMAGE_NAME):latest
 

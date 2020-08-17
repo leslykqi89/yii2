@@ -8,8 +8,6 @@ before_install:
 
 deploy:
   provider: script
-  script:
-    - make build
-    - make push
+  script: make push-all
   on:
     branch: master
