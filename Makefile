@@ -8,6 +8,10 @@ FULL_IMAGE_NAME = $(IMAGE_NAME):$(IMAGE_TAG)
 
 default: build
 
+push-all:
+	make build
+	make push
+
 build:
 	docker pull $(IMAGE_BASE)
 	docker build -t $(FULL_IMAGE_NAME) --no-cache .
@@ -17,10 +21,6 @@ latest:
 
 push:
 	docker push $(FULL_IMAGE_NAME)
-
-push-all:
-	build
-	push
 
 push-latest:
 	docker push $(IMAGE_NAME):latest
