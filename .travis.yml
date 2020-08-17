@@ -3,12 +3,13 @@ language: generic
 services:
   - docker
 
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
 deploy:
   provider: script
   script:
     - docker build -t leslykqi/yii2 .
-    # Log in to the docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push themto docker hub
     - docker push leslykqi/yii2:latest
   on:
