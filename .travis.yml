@@ -10,7 +10,6 @@ deploy:
   provider: script
   script:
     - make build
-    # Take those images and push themto docker hub
     - make push
   on:
     branch: master
